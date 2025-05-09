@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardioDetect - Detect Cardiac Attack Symptoms</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fff5f5, #ffecec);
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d32f2f;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #b71c1c;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .cta a {
+      padding: 12px 24px;
+      background: #d32f2f;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #a52222;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      height: 500px;
+
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    .quote {
+      background: #fff3f3;
+      text-align: center;
+      padding: 50px 20px;
+      font-style: italic;
+      font-size: 20px;
+      color: #c62828;
+    }
+
+    .content-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      gap: 40px;
+    }
+
+    .content-section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .content-section img {
+      max-width: 45%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section .text {
+      flex: 1;
+    }
+
+    .content-section .text h2 {
+      font-size: 28px;
+      color: #b71c1c;
+      margin-bottom: 10px;
+    }
+
+    .content-section .text p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #c62828;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">HealthBuddy</div>
+    <nav>
+      <a href="{{ url_for('about') }}">About Us</a>
+      <a href="{{ url_for('blog') }}">Blog</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+      <a href="{{ url_for('signin') }}">Sign In</a>
+      <a href="{{ url_for('signup') }}">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    
+    <h1>Detect Cardiac Attack Symptoms Early</h1>
+    <p>HealthBuddy helps you identify early warning signs of cardiovascular problems using symptom-based analysis and
+      AI-driven health insights.</p>
+    <div class="cta">
+      <a href="{{ url_for('signup') }}">Check Symptoms</a>
+      <a href="{{ url_for('blog') }}">Learn More</a>
+    </div>
+    <section class="quote">
+      "Every heartbeat counts. Early detection saves lives."
+    </section>
+    <img class="hero-image" src="{{ url_for('static', filename='images/herobanner.jpg') }}" alt="Hero Banner">
+
+
+  </section>
+
+  <section class="content-section">
+    <img src="{{ url_for('static', filename='images/img1.png') }}" alt="Heart Health Animation">
+    <div class="text">
+      <h2>About Cardiovascular Attack</h2>
+      <p>A cardiovascular attack, commonly referred to as a heart attack, occurs when blood flow to the heart is
+        suddenly blocked, often due to a blood clot or buildup of fatty deposits (plaque) in the coronary arteries. This
+        blockage prevents oxygen-rich blood from reaching parts of the heart muscle, leading to damage or death of heart
+        tissue. Symptoms may include chest pain, shortness of breath, dizziness, or discomfort in other areas like the
+        arms or jaw. Prompt medical attention is crucial to minimize damage and improve outcomes.</p>
+    </div>
+  </section>
+
+  <section class="content-section reverse">
+    <img src="{{ url_for('static', filename='images/img2.jpeg') }}" alt="Patient 1">
+    <div class="text">
+      <h2>Understanding Cardiovascular Attack Symptoms</h2>
+      <p>Common signs include intense chest pain or discomfort, often described as pressure or squeezing, that may
+        spread to the arms, back, neck, or jaw. Other symptoms can include shortness of breath, nausea, sweating,
+        lightheadedness, or a feeling of impending doom. These symptoms can vary, especially between men and women, and
+        not all heart attacks involve severe chest pain. Immediate medical attention can be lifesaving.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <img src="{{ url_for('static', filename='images/img3.jpeg') }}" alt="Heart Health Animation">
+    <div class="text">
+      <h2>Preacutions for Cardiovascular Attack</h2>
+      <p>To prevent a cardiovascular attack, focus on a healthy lifestyle—eat well, exercise regularly, quit smoking,
+        manage stress, and monitor blood pressure, cholesterol, and sugar levels through health checks. These steps can
+        significantly reduce risks</p>
+    </div>
+  </section>
+
+  <section class="content-section reverse">
+    <img src="{{ url_for('static', filename='images/img4.jpeg') }}" alt="Patient 1">
+    <div class="text">
+      <h2>How Cardiovascular Attack can be treated</h2>
+      <p>Real-time data from patients helps us recognize subtle warning signs. With visual aids and guided questions,
+        CardioDetect ensures no symptom is ignored and timely advice is provided to users.</p>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 CardioDetect. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+      <a href="mailto:support@cardiodetect.ai">Email Support</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

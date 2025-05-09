@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Details Form - CardioDetect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bar.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='progress.css') }}">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    main {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b71c1c;
+      margin-bottom: 40px;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      background: #d32f2f;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b71c1c;
+    }
+    result-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    progress-wrapper {
+      margin-top: 20px;
+      background-color: #e0e0e0;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 30px;
+    }
+
+    progress-bar {
+      height: 100%;
+      /* width: {{ percent }}%; */
+      background: linear-gradient(90deg, #4caf50, #8bc34a);
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      transition: width 1s ease-in-out;
+    }
+
+    status-text {
+      font-size: 60px;
+      margin-bottom: 10px;
+      color: #333;
+      align-items: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">CardioDetect</div>
+  <nav>
+    <a href="{{ url_for('index') }}">Sign Out</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Health Details</h1>
+  <form action='/predict' method="POST" class+"col s12">
+
+    <!-- <div class="result-container">      
+        <div class="status-text">{{ pred }}</div>      
+    </div> -->
+   
+    
+    <label for="age">Age</label>
+    <input type="text" id="age" name="age" placeholder="Enter your age">
+
+    <label for="sex">Sex</label>
+    <select id="sex" name="sex">
+      <option value="0">Female</option>
+      <option value="1">Male</option>
+    </select>
+
+    <label for="cp">Chest Pain (0-3)</label>
+    <input type="number" id="cp" name="cp" placeholder="0-3" min="0" max="3">
+
+    <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+    <input type="number" id="trestbps" name="trestbps" placeholder="90-200 mm Hg" min="90" max="200">
+
+    <label for="chol">Cholesterol (mg/dl)</label>
+    <input type="number" id="chol" name="chol" placeholder="100-600 mg/dl" min="100" max="600">
+
+    <label for="fbs">Fasting Blood Sugar</label>
+    <select id="fbs" name="fbs">
+      <option value="0">Less than 120 mg/dl</option>
+      <option value="1">Greater than 120 mg/dl</option>
+    </select>
+
+    <label for="restecg">Resting Electrocardiographic</label>
+    <select id="restecg" name="restecg">
+      <option value="0">Normal</option>
+      <option value="1">ST-T abnormality</option>
+      <option value="2">Left Ventricular Hypertrophy</option>
+    </select>
+
+    <label for="thalach">Maximum Heart Rate (bpm)</label>
+    <input type="number" id="thalach" name="thalach" placeholder="60-200 bpm" min="60" max="200">
+
+    <label for="exang">Exercise-Induced Angina</label>
+    <select id="exang" name="exang">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+
+    <label for="oldpeak">ST Segment Depression (0.0 - 6.0 mm)</label>
+    <input type="number" id="oldpeak" name="oldpeak" step="0.1" placeholder="e.g., 1.4" min="0.0" max="6.0">
+
+    <label for="slope">Slope (0-2)</label>
+    <input type="number" id="slope" name="slope" placeholder="0-2" min="0" max="2">
+
+    <label for="ca">Number of Blocked Arteries (0-4)</label>
+    <input type="number" id="ca" name="ca" placeholder="0-4" min="0" max="4">
+
+    <label for="thal">Thalassemia</label>
+    <input type="text" id="thal" name="thal" placeholder="e.g., normal, fixed defect, reversible defect">
+
+    <button type="submit">Submit Details</button>
+  </form>
+</main>
+
+<!-- <br><h4 align=""center"<b>{{pred}}</b> <h4></h4>
+<br> -->
+</body>
+</html>

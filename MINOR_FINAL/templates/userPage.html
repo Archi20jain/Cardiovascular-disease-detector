@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardioDetect - User Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fff5f5, #ffecec);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d32f2f;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #b71c1c;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #c62828;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #c62828;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HealthBuddy</div>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('index') }}">Sign Out</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Welcome to Your Dashboard</h1>
+  <div class="dashboard">
+      <a href="{{ url_for('details') }}" class="card">
+      <h2>Check Symptoms</h2>
+      <p>Analyze your symptoms instantly and get a health assessment.</p>
+    </a>
+    <a href="{{ url_for('consult') }}" class="card">
+      <h2>Consult Doctor</h2>
+      <p>Connect with certified cardiologists for professional advice.</p>
+    </a>
+    <a href="{{ url_for('nearBy') }}" class="card">
+      <h2>Nearby Hospitals</h2>
+      <p>Find and navigate to the nearest hospitals or emergency care.</p>
+    </a>
+    <a href="{{ url_for('prescription') }}" class="card">
+      <h2>Medicine Prescription</h2>
+      <p>View or download prescriptions recommended by doctors.</p>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 CardioDetect. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="mailto:support@cardiodetect.ai">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>
+

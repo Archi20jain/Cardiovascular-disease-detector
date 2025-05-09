@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CardioDetect - Cardiovascular Symptoms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #fff0f0, #ffecec);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #c62828;
+    }
+    .symptom-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .custom-checkbox {
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+    .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .checkmark {
+      position: absolute;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #c62828;
+      border-radius: 5px;
+    }
+    .custom-checkbox:hover input ~ .checkmark {
+      background-color: #ffecec;
+    }
+    .custom-checkbox input:checked ~ .checkmark {
+      background-color: #c62828;
+      border: 2px solid #c62828;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+    .custom-checkbox .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    button {
+      width: 100%;
+      margin-top: 30px;
+      background: #c62828;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #b22222;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Cardiovascular Symptoms</h1>
+  <form id="symptomForm">
+    <div class="symptom-group">
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Chest Pain">
+        <span class="checkmark"></span>
+        Chest Pain
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Shortness of Breath">
+        <span class="checkmark"></span>
+        Shortness of Breath
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Dizziness">
+        <span class="checkmark"></span>
+        Dizziness
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Rapid Heartbeat">
+        <span class="checkmark"></span>
+        Rapid Heartbeat
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Nausea">
+        <span class="checkmark"></span>
+        Nausea
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Sweating">
+        <span class="checkmark"></span>
+        Sweating
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Fatigue">
+        <span class="checkmark"></span>
+        Fatigue
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Pain in Arm/Shoulder">
+        <span class="checkmark"></span>
+        Pain in Arm/Shoulder
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Jaw Pain">
+        <span class="checkmark"></span>
+        Jaw Pain
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Back Pain">
+        <span class="checkmark"></span>
+        Back Pain
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Lightheadedness">
+        <span class="checkmark"></span>
+        Lightheadedness
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Upper Abdomen Pain">
+        <span class="checkmark"></span>
+        Upper Abdomen Pain
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Cold Sweats">
+        <span class="checkmark"></span>
+        Cold Sweats
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Indigestion">
+        <span class="checkmark"></span>
+        Indigestion
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Pain Between Shoulders">
+        <span class="checkmark"></span>
+        Pain Between Shoulders
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Heartburn">
+        <span class="checkmark"></span>
+        Heartburn
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Persistent Coughing">
+        <span class="checkmark"></span>
+        Persistent Coughing
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Swelling in Legs/Ankles">
+        <span class="checkmark"></span>
+        Swelling in Legs/Ankles
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" name="symptoms" value="Trouble Breathing When Lying Down">
+        <span class="checkmark"></span>
+        Trouble Breathing When Lying Down
+      </label>
+    </div>
+
+    <button type="submit">Submit Symptoms</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prediction Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --percentage: {{ percentage }}%;
+      --color: {{ '#E75480' if percentage|float < 50 else 'red' }};
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffe6e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      backdrop-filter: blur(15px);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #c62828;
+    }
+
+    .progress-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--color) calc(var(--percentage)),
+        #FFC1CC 0%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1),
+                  0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: background 1.5s ease;
+    }
+
+    .progress-circle span {
+      font-size: 36px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .message {
+      font-size: 20px;
+      font-weight: 500;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .progress-circle {
+        width: 180px;
+        height: 180px;
+      }
+
+      .progress-circle span {
+        font-size: 28px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .message {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Heart Health Prediction</h1>
+    <div class="progress-circle">
+      <span>{{ percentage }}%</span>
+    </div>
+    <p class="message">{{ message }}</p>
+  </div>
+</body>
+</html>

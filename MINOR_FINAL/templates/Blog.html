@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CardioDetect Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fffaf9;
+      color: #333;
+    }
+
+    header {
+      background-color: #c62828;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .blog-post {
+      display: flex;
+      background: #fff;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .blog-post img {
+      width: 250px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .blog-content h2 {
+      color: #c62828;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .blog-content p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .blog-content .date {
+      font-size: 13px;
+      color: gray;
+      margin-bottom: 10px;
+    }
+
+    .blog-content a.read-more {
+      display: inline-block;
+      color: #c62828;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 5px;
+    }
+
+    .blog-content a.read-more:hover {
+      text-decoration: underline;
+    }
+
+    .case-section {
+      margin-top: 60px;
+    }
+
+    .case-section h2 {
+      text-align: center;
+      color: #c62828;
+      margin-bottom: 30px;
+    }
+
+    .case-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .case-item {
+      background: #fff;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .case-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .case-item .case-text {
+      padding: 15px;
+    }
+
+    .case-item .case-text h4 {
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    .case-item .case-text p {
+      font-size: 14px;
+    }
+
+    footer {
+      background-color: #c62828;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CardioDetect Blog</h1>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+    <a href="{{ url_for('signin') }}">Sign In</a>
+    <a href="{{ url_for('signup') }}">Sign Up</a>
+  </nav>
+</header>
+
+<section class="blog-section">
+
+  <!-- Educational Blog Post -->
+  <div class="blog-post">
+    <img src="{{ url_for('static', filename='images/img7.webp') }}" alt="Understanding Cardiovascular Attack">
+    <div class="blog-content">
+      <div class="date">April 8, 2025</div>
+      <h2>What is a Cardiovascular Attack?</h2>
+      <p>
+        A cardiovascular attack, commonly known as a heart attack, occurs when the blood flow to the heart is significantly reduced or blocked.
+        This is usually due to a buildup of fat, cholesterol, and other substances, which form a plaque in the arteries.
+      </p>
+      <p>
+        The damage can be life-threatening if not treated quickly. Warning signs include chest pain, shortness of breath, nausea, and cold sweats.
+        With timely medical attention and tools like CardioDetect, early detection is now possible.
+      </p>
+      <a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <!-- Blog Posts -->
+  <div class="blog-post">
+    <img src="{{ url_for('static', filename='images/imgm.jpeg') }}" alt="">
+    <div class="blog-content">
+      <div class="date">March 30, 2025</div>
+      <h2>What Are the Early Warning Signs of a Heart Attack?</h2>
+      <p>Early heart attack signs include chest pain, shortness of breath, nausea, and cold sweats. Pain may spread to the arms, neck, or jaw. Quick action can prevent serious damage.</p>
+      <a href="https://health.clevelandclinic.org/early-signs-of-a-heart-attack" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="blog-post">
+    <img src="{{ url_for('static', filename='images/img5.jpeg') }}" alt="Healthy Lifestyle">
+    <div class="blog-content">
+      <div class="date">March 15, 2025</div>
+      <h2>Heart-Healthy Habits You Can Start Today</h2>
+      <p>Diet, exercise, sleep — your daily habits shape your heart’s future. These simple changes could reduce your risk of a heart attack by up to 50%.</p>
+      <a href="https://utswmed.org/medblog/heart-health-tips-habits" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Case Studies Section -->
+<section class="blog-section case-section">
+  <h2>Real-Life Cardiovascular Cases</h2>
+  <div class="case-grid">
+
+    <div class="case-item">
+      
+      <div class="case-text">
+        <h4>Case #101 - Missed Symptoms</h4>
+        <p>A 42-year-old man ignored signs like back pain and fatigue. By the time he reached the ER, it was a full-blown cardiac event.</p>
+      </div>
+    </div>
+
+    <div class="case-item">
+      
+      <div class="case-text">
+        <h4>Case #102 - Young Woman Survivor</h4>
+        <p>A 28-year-old tech worker suffered a heart attack after days of stress and sleeplessness. Timely AI diagnosis saved her life.</p>
+      </div>
+    </div>
+
+    <div class="case-item">
+      
+      <div class="case-text">
+        <h4>Case #103 - No Symptoms</h4>
+        <p>A patient showed no typical symptoms. CardioDetect flagged elevated risk via subtle cues like jaw tightness. Intervention was life-saving.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 CardioDetect. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

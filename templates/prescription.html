@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioDetect - Medical Prescriptions</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fff5f5, #ffecec);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d32f2f;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #b71c1c;
+      text-align: center;
+    }
+
+    .prescription-list {
+      width: 100%;
+      max-width: 1000px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .prescription-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #f1cfcf;
+      padding-bottom: 20px;
+    }
+
+    .prescription-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+
+    .prescription-details {
+      flex: 1;
+    }
+
+    .prescription-details h3 {
+      color: #d32f2f;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .prescription-details p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #d32f2f;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .buy-button:hover {
+      background: #a52222;
+    }
+
+    .disclaimer {
+      background: #ffe6e6;
+      padding: 20px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #a52222;
+      border-radius: 8px;
+      max-width: 700px;
+    }
+
+    footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #555;
+      margin-top: 30px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #c62828;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HealthBuddy</div>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <!-- <a href="userDashboard.html">Dashboard</a> -->
+    <a href="{{ url_for('index') }}">Sign Out</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Medical Prescriptions</h1>
+
+  <div class="prescription-list">
+
+    <div class="prescription-item">
+      <img src="{{ url_for('static', filename='images/pills.1.jpeg') }}" alt="Aspirin">
+      <div class="prescription-details">
+        <h3>Aspirin (Low-Dose)</h3>
+        <p>Helps prevent blood clots and reduces heart attack risks. Dosage must be confirmed by a doctor.</p>
+        <a href="https://www.1mg.com/drugs/aspirin-75mg-tablet-187429" target="_blank" class="buy-button">Buy Online</a>
+      </div>
+    </div>
+
+    <div class="prescription-item">
+      <img src="{{ url_for('static', filename='images/pills.2.jpeg') }}" alt="Statins">
+      <div class="prescription-details">
+        <h3>Statins</h3>
+        <p>Medicines like Atorvastatin lower cholesterol and prevent artery blockages.</p>
+        <a href="https://www.1mg.com/drugs/atorvastatin-10mg-tablet-183693" target="_blank" class="buy-button">Buy Online</a>
+      </div>
+    </div>
+
+    <div class="prescription-item">
+      <img src="{{ url_for('static', filename='images/pills3.jpeg') }}" alt="Beta Blocker">
+      <div class="prescription-details">
+        <h3>Beta Blockers</h3>
+        <p>Manage blood pressure and heart rhythms. (Example: Metoprolol)</p>
+        <a href="https://www.1mg.com/drugs/metoprolol-50mg-tablet-183712" target="_blank" class="buy-button">Buy Online</a>
+      </div>
+    </div>
+
+    <div class="prescription-item">
+      <img src="{{ url_for('static', filename='images/pills4.jpeg') }}" alt="ACE Inhibitor">
+      <div class="prescription-details">
+        <h3>ACE Inhibitors</h3>
+        <p>Relax blood vessels, easing heart pumping. (Example: Ramipril)</p>
+        <a href="https://www.1mg.com/drugs/ramipril-5mg-tablet-183720" target="_blank" class="buy-button">Buy Online</a>
+      </div>
+    </div>
+
+    <div class="prescription-item">
+      <img src="{{ url_for('static', filename='images/pills5.jpeg') }}" alt="Blood Thinner">
+      <div class="prescription-details">
+        <h3>Blood Thinners</h3>
+        <p>Prevent blood clots that could cause strokes or heart attacks. (Example: Warfarin)</p>
+        <a href="https://www.1mg.com/drugs/warfarin-5mg-tablet-183733" target="_blank" class="buy-button">Buy Online</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ <strong>Disclaimer:</strong> Do not consume any listed medication without proper consultation with a licensed medical doctor. Self-medication can be dangerous.
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 CardioDetect. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="mailto:support@cardiodetect.ai">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioDetect - Nearby Hospitals</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fff5f5, #ffecec);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d32f2f;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #b71c1c;
+      text-align: center;
+    }
+
+    .hospital-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+
+    .hospital-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .hospital-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .hospital-card h3 {
+      font-size: 20px;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    .hospital-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .hospital-card a {
+      display: inline-block;
+      background: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .hospital-card a:hover {
+      background: #a52222;
+    }
+
+    footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #c62828;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HealthBuddy</div>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <!-- <a href="userDashboard.html">Dashboard</a> -->
+    <a href="{{ url_for('index') }}">Sign Out</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Nearby Hospitals</h1>
+
+  <div class="hospital-list">
+
+    <div class="hospital-card">
+      
+      <h3>Apollo Hospital</h3>
+      <p>Indore, India</p>
+      <a href="https://www.google.com/maps/place/Apollo+Hospitals+Indore/data=!4m7!3m6!1s0x396303bd0d6aa29f:0x17b069d0af3202ff!8m2!3d22.7575019!4d75.8851377!16s%2Fg%2F11rhnrb3lj!19sChIJn6JqDb0DYzkR_wIyr9BpsBc?authuser=0&hl=en&rclk=1" target="_blank">View on Map</a>
+    </div>
+
+    <div class="hospital-card">
+      
+      <h3>Kokilaben Dhirubhai Ambani Hospital</h3>
+      <p>Indore, India</p>
+      <a href="https://maps.app.goo.gl/jeHjyTqtb6XXEFcN6" target="_blank">View on Map</a>
+    </div>
+
+    <div class="hospital-card">
+      
+      <h3>Medanta Super Speciality Hospital</h3>
+      <p>Indore, India</p>
+      <a href="https://www.medanta.org/hospitals-near-me/indore-hospital" target="_blank">View on Map</a>
+    </div>
+
+    <div class="hospital-card">
+     
+      <h3>Shalby Hospital</h3>
+      <p>Indore, India</p>
+      <a href="https://www.shalby.org/hospitals/indore-shalby/" target="_blank">View on Map</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 CardioDetect. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="mailto:support@cardiodetect.ai">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>
+Delhi
